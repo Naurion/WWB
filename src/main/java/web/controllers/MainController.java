@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import web.form.PersonForm;
 import web.model.Person;
 
 import java.util.ArrayList;
@@ -18,8 +17,8 @@ public class MainController {
     private static List<Person> persons = new ArrayList<Person>();
 
     static {
-        persons.add(new Person("John", "Smith"));
-        persons.add(new Person("Mike", "Tyson"));
+        persons.add(new Person("John", "Smith", "1st Street", 21));
+        persons.add(new Person("Mike", "Tyson", "2nd Street", 60));
     }
 
     @Value("${welcome.message}")
@@ -43,19 +42,23 @@ public class MainController {
     @RequestMapping(value = {"/addPerson"}, method = RequestMethod.GET)
     public String personAddPage(Model model) {
 
-        PersonForm personForm = new PersonForm();
-        model.addAttribute("personForm", personForm);
+        Person person = new Person();
+        model.addAttribute("person", person);
 
         return "addPerson";
     }
 
     @RequestMapping(value = {"/addPerson"}, method = RequestMethod.POST)
-    public String savePerson(Model model, @ModelAttribute("personForm") PersonForm personForm) {
-        String firstName = personForm.getFirstName();
-        String lastName = personForm.getLastName();
+    public String savePerson(Model model, @ModelAttribute("person") Person person) {
+        long id = person.getId();
+        String firstName = person.getFirstName();
+        String lastName = person.getLastName();
+        String address = person.getAddress();
+        int age = person.getAge();
+
 
         if (firstName != null && firstName.length() > 0 && lastName != null && lastName.length() > 0) {
-            Person newPerson = new Person(firstName, lastName);
+            Person newPerson = new Person(firstName, lastName, address, age);
             persons.add(newPerson);
             return "redirect:/personList";
         }

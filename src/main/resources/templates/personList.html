@@ -3,8 +3,7 @@
 <head>
     <title>Person list</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" media="all"
-          href="../../css/gtvg.css" th:href="@{/css/gtvg.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
 </head>
 <body>
 <h1>Person list</h1>
@@ -13,12 +12,18 @@
 <div>
     <table border="1">
         <tr>
+            <th>ID</th>
             <th>First name</th>
             <th>Last name</th>
+            <th>Address</th>
+            <th>Age</th>
         </tr>
         <tr th:each="person:${persons}">
+            <td th:utext="${person.id}">...</td>
             <td th:utext="${person.firstName}">...</td>
             <td th:utext="${person.lastName}">...</td>
+            <td th:utext="${person.address}">...</td>
+            <td th:utext="${person.age}">...</td>
         </tr>
     </table>
 </div>
