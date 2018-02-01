@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Main page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../../css/gtvg.css" th:href="@{/css/gtvg.css}"/>
+</head>
+<body>
+<h1> Hello World! </h1>
+<h2 th:utext="${message}"/>
+<a th:href="@{/personList}">Person list</a>
+</body>
+</html>
