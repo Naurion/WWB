@@ -1,6 +1,7 @@
 package web.model;
 
 import java.util.Calendar;
+import java.util.Random;
 
 public class Person {
     private long id;
@@ -20,8 +21,9 @@ public class Person {
         this.age = age;
     }
 
+
     private long generateId() {
-        return Calendar.getInstance().getTimeInMillis();
+        return Math.abs(new Random(Calendar.getInstance().getTimeInMillis()).nextLong());
     }
 
     public String getFirstName() {

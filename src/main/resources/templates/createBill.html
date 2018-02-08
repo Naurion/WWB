@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Person list</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
+</head>
+<body>
+
+<h1>Create new bill for <p th:utext="${bill.getOwnerId()}"></p> </h1>
+
+<form th:action="@{/addBill}"
+      th:object="${bill}" method="POST">
+    Money:
+    <input type="text" th:field="*{money}"/>
+    <br/>
+    <input type="submit" value="Create"/>
+</form>
+
+</body>
+</html>

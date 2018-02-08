@@ -24,6 +24,12 @@
             <td th:utext="${person.lastName}">...</td>
             <td th:utext="${person.address}">...</td>
             <td th:utext="${person.age}">...</td>
+            <td>
+                <form th:action="@{/addBill}" method="get">
+                    <input type="hidden" th:value="${person.id}" th:name="personId" />
+                    <button type="submit">Add bill</button>
+                </form>
+            </td>
         </tr>
     </table>
 </div>

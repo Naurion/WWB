@@ -1,6 +1,7 @@
 package web.model;
 
 import java.util.Calendar;
+import java.util.Random;
 
 public class Bill {
     private long id;
@@ -17,7 +18,7 @@ public class Bill {
     }
 
     private long generateId() {
-        return Calendar.getInstance().getTimeInMillis();
+        return Calendar.getInstance().getTimeInMillis() + new Random(100).nextLong();
     }
 
     public long getId() {
