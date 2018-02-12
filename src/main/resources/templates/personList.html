@@ -30,6 +30,13 @@
                     <button type="submit">Add bill</button>
                 </form>
             </td>
+            <td>
+                <form th:action="@{/billList}" method="get">
+                    <input type="hidden" th:value="${person.id}" th:name="personId" />
+                    <button type="submit">Show bills</button>
+                </form>
+            </td>
+
         </tr>
     </table>
 </div>

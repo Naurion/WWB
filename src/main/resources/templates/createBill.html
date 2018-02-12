@@ -11,6 +11,7 @@
 
 <form th:action="@{/addBill}"
       th:object="${bill}" method="POST">
+    <input type="hidden" th:value="*{ownerId}" th:name="personId" />
     Money:
     <input type="text" th:field="*{money}"/>
     <br/>

@@ -1,16 +1,16 @@
 package web.model;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Random;
 
 @Entity
 @Table(name = "person")
-public class Person implements Serializable {
+public class Person implements ModelObject {
     @Id
     private long id;
     @Column(name = "firstname")

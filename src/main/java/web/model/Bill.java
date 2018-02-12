@@ -1,11 +1,18 @@
 package web.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Calendar;
 import java.util.Random;
 
-public class Bill {
+@Entity
+public class Bill implements ModelObject {
+    @Id
     private long id;
+    @Column
     private long ownerId;
+    @Column
     private double money;
 
     public Bill() {

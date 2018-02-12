@@ -20,16 +20,6 @@ public class PersonsController {
     PersonRepository repository;
     private static List<Person> persons = new ArrayList<Person>();
 
-    static {
-        persons.add(new Person("John", "Smith", "1st Street", 21));
-        try {
-            Thread.sleep(600);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        persons.add(new Person("Mike", "Tyson", "2nd Street", 60));
-    }
-
 
     @Value("${error.message}")
     private String errorMessage;
@@ -37,8 +27,8 @@ public class PersonsController {
 
     @RequestMapping(value = {"/personList"}, method = RequestMethod.GET)
     public String personListPage(Model model) {
+        persons = (List<Person>) repository.findAll();
         model.addAttribute("persons", persons);
-        repository.save(persons);
         return "personList";
     }
 
